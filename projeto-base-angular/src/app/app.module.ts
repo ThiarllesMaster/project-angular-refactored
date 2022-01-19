@@ -21,7 +21,12 @@ import { HomeComponent } from './components/home/home.component';
 
 //This is the component to be used at Home section
 import { MatCardModule } from '@angular/material/card';
+import { BookListComponent } from './components/book/book-list/book-list.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 
+//This is the component responsible to add the buttons
+import { MatButtonModule } from '@angular/material/button';
+import { BookCreateComponent } from './components/book/book-create/book-create.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,10 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     NavigationComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    BookListComponent,
+    UserListComponent,
+    BookCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,8 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule, 
     MatSidenavModule, 
     MatListModule, 
-    MatCardModule
+    MatCardModule, 
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
