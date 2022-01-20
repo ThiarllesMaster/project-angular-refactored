@@ -28,6 +28,13 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
 import { MatButtonModule } from '@angular/material/button';
 import { BookCreateComponent } from './components/book/book-create/book-create.component';
 
+//This is the component responsible by the forms
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms'
+//End elements of form
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +56,11 @@ import { BookCreateComponent } from './components/book/book-create/book-create.c
     MatSidenavModule, 
     MatListModule, 
     MatCardModule, 
-    MatButtonModule
+    MatButtonModule, 
+    MatFormFieldModule,
+    MatInputModule, 
+    MatSelectModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

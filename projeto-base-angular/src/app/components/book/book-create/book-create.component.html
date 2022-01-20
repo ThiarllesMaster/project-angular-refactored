@@ -1,1 +1,29 @@
-<p>book-create works!</p>
+<div style="font-size: 12px">
+    <mat-card>
+        <mat-card-title>Add Book</mat-card-title>
+        <form>
+            <mat-form-field class="custom-form-field">
+                <input matInput placeholder="Title" [(ngModel)]="book.title" name = "title">
+            </mat-form-field>
+            <mat-form-field class="custom-form-field">
+                <input matInput placeholder="Quantity" [(ngModel)]="book.quantity" name = "quantity">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="custom-form-field">
+                Category
+                <mat-select [(ngModel)]="category" name="category">
+                  <mat-option *ngFor="let category of categories" [value]="category.value">
+                    {{category.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </form>
+    </mat-card>
+    </div>
+    
+    <button mat-raised-button  color="primary" (click) = "addBook()" class="button">
+        Save
+    </button>
+    
+    <button mat-raised-button (click) = "cancel()"  class="button">
+        Cancel
+    </button>
