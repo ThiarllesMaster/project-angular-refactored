@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from '../model/book.model';
 import { CategoryBook } from '../model/category_book.model';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-book-create',
@@ -11,28 +12,31 @@ import { CategoryBook } from '../model/category_book.model';
 })
 export class BookCreateComponent implements OnInit {
 
-  category: string = ""
+  myForm: FormGroup
 
-  //Here we define the object to receive the info from view
-  book: Book = {
-    title: "", 
-    category: "", 
-    quantity: 0
+  constructor(private router: Router, 
+    private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.myForm = this.formBuilder.group({
+      title: ['', [
+        Validators.required
+      ]], 
+      quantity: 0, 
+      category: ''      
+    })
+    this.myForm.valueChanges.subscribe(console.log)
   }
-  
+    
   categories: CategoryBook[] = [
     { value: "Informatics", viewValue: "Informatics" }, 
     { value: "Science", viewValue: "Science"}
   ]
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   addBook() {
-    this.book.category = this.category
-    console.log(`The book saved ${this.book.title}`)
+    console.log(`This is the title: ${this.myForm.value.title}`)
+    //this.book.category = this.category
   }
 
   cancel() {

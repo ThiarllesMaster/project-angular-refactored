@@ -33,6 +33,12 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { AuthenticationComponent } from './components/account/authentication/authentication/authentication.component';
+import { LoginComponent } from './components/account/login/login/login.component';
 //End elements of form
 
 @NgModule({
@@ -47,6 +53,8 @@ import { FormsModule } from '@angular/forms'
     BookListComponent,
     UserListComponent,
     BookCreateComponent,
+    AuthenticationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,8 @@ import { FormsModule } from '@angular/forms'
     MatFormFieldModule,
     MatInputModule, 
     MatSelectModule, 
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

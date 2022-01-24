@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from './components/account/authentication.guard';
+import { AuthenticationComponent } from './components/account/authentication/authentication/authentication.component';
+import { LoginComponent } from './components/account/login/login/login.component';
 import { BookCreateComponent } from './components/book/book-create/book-create.component';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +24,13 @@ const routes: Routes = [
           { path: 'create-book', component: BookCreateComponent}
         ]
       },
+    ], canActivate: [AuthenticationGuard]
+  }, 
+  {
+    path: '', component: AuthenticationComponent, 
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' }, 
+      { path: 'login', component: LoginComponent}
     ]
   }
 ];
