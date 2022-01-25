@@ -41,6 +41,11 @@ import { AuthenticationComponent } from './components/account/authentication/aut
 import { LoginComponent } from './components/account/login/login/login.component';
 //End elements of form
 
+//Enable the interceptors and integration
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthInterceptor } from './https-interceptors/auth.interceptor';
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +74,12 @@ import { LoginComponent } from './components/account/login/login/login.component
     MatInputModule, 
     MatSelectModule, 
     FormsModule, 
-    ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule
+    ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
