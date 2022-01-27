@@ -45,6 +45,10 @@ import { LoginComponent } from './components/account/login/login/login.component
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthInterceptor } from './https-interceptors/auth.interceptor';
 import { AuthService } from './services/auth.service';
+import { DialogComponent } from './components/dialog/dialog/dialog.component';
+
+//Dialogs 
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,8 @@ import { AuthService } from './services/auth.service';
     UserListComponent,
     BookCreateComponent,
     AuthenticationComponent,
-    LoginComponent
+    LoginComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,8 @@ import { AuthService } from './services/auth.service';
     MatSelectModule, 
     FormsModule, 
     ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule, 
-    HttpClientModule
+    HttpClientModule, 
+    MatDialogModule
   ],
   providers: [
     AuthService, 
